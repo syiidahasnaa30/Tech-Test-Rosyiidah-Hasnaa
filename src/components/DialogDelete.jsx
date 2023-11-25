@@ -6,9 +6,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { deleteUser } from '../utils/user-api';
+function DialogDelete({ open, handleClose, id }) {
 
-function DialogDelete({ open, handleClose }) {
-
+    const moveToDelete = async () => {
+        await deleteUser(id);
+        handleClose()
+    }
     return (
         <React.Fragment>
             <Dialog
@@ -27,7 +31,7 @@ function DialogDelete({ open, handleClose }) {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Batal</Button>
-                    <Button onClick={handleClose} autoFocus>
+                    <Button onClick={moveToDelete} autoFocus>
                         Ok
                     </Button>
                 </DialogActions>

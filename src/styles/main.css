@@ -1,4 +1,5 @@
 :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     --primary-100: #26a69a;
     --primary-200: #408d86;
     --primary-300: #cdfaf6;
@@ -13,12 +14,16 @@
 }
 
 body {
-    background-color: var(--bg-300);
+    background-color: var(--bg-100);
     margin: 0px;
     padding: 0px;
     top: 0px;
 }
 
+button{
+    min-height: 44px;
+    min-width: 44px;
+}
 .app-content {
     padding: 20px;
 }
@@ -26,7 +31,7 @@ body {
 .table-user button {
     border: none;
     margin-right: 5px;
-    font-size: 20px;
+    font-size: 25px;
     background-color: var(--bg-300);
 }
 
@@ -50,6 +55,64 @@ body {
     background-color: var(--accent-100);
 }
 
+.app-content__action {
+    position: fixed;
+    display: flex;
+    gap: 16px;
+    bottom: 50px;
+    right: 50px;
+}
+
+.app-content__action button {
+    background-color: var(--accent-200);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.app-content__action button:hover {
+    background-color: var(--accent-100);
+
+}
+
+/** create user page*/
+.page-input-user{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.form-input{
+    max-width: 650px;
+    padding: 50px;
+    background: var(--bg-200);
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px 0px var(--accent-100);
+   
+}
+.form-input__date{
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-height: 44px;
+    background-color: transparent;
+    border-color: var(--accent-200);
+    border-width: 1px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+.form-input__date:focus{
+    border-color: var(--accent-200);
+}
+
+.form-input button{
+    width: 100%;
+    background: var(--accent-200);
+    border-radius: 5px;
+    border-color: var(--accent-100);
+    color: var(--bg-300);
+    margin-top: 20px;
+}
 
 @media screen and (min-width:650px) {
     .app-content {

@@ -1,20 +1,16 @@
 const countAverage = (numbers) => {
-    let sum = 0;
-    numbers.forEach(number => {
-        sum += number
+    const sum = numbers.reduce((prevCount, currentCount)=>{
+        return prevCount+currentCount
     })
     return sum / numbers.length;
 }
 const findMinMaxAverage = (input) => {
     const splittedInput = input.split(/[, ]/gm);
-    const inputToNumber = []
-    splittedInput.forEach(number => {
-        inputToNumber.push(Number(number))
-    });
+    const numbers = splittedInput.map((number)=>Number(number))
     const result = {
-        max: Math.max(...inputToNumber),
-        min: Math.min(...inputToNumber),
-        average: Number(countAverage(inputToNumber).toFixed(2))
+        max: Math.max(...numbers),
+        min: Math.min(...numbers),
+        average: Number(countAverage(numbers).toFixed(2))
     }
     return result
 }

@@ -1,22 +1,17 @@
-import { useEffect, useState } from "react"
-import TableUser from "./components/TableUser"
-import getAllUser from "./utils/getAllUser"
+import { Route, Routes } from "react-router-dom"
+import HomePage from "./page/HomePage"
+import CreateUserPage from "./page/CreateUserPage"
 
 function App() {
-  const [users, setUsers] = useState([])
-  useEffect(() => {
-    const getUser = async () => {
-      setUsers(await getAllUser())
-    }
-    getUser()
-
-  }, [])
-
   return (
     <div className="app-content">
-      <h1>Rosyiidah Hasnaa</h1>
-      <p>syiidahasnaa30@gmail.com</p>
-      <TableUser users={users} />
+      <main >
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/user/add" element={<CreateUserPage />} />
+        </Routes>
+
+      </main>
     </div>
   )
 }

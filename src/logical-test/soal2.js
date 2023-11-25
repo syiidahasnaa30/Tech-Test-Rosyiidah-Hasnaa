@@ -1,19 +1,18 @@
 const countRandomCharacter = (words) => {
     const splittedWord = words.split("");
     const uniqueWord = [...new Set(splittedWord)]
-    const countWord = [];
-    uniqueWord.forEach(word => {
-        countWord.push({ character: word, count: 0 });
+    const countUnique = uniqueWord.map((word)=>{
+        return {character: word, count: 0}
     })
-
+    
     splittedWord.forEach(word => {
-        countWord.forEach(charToCount => {
-            if (word === charToCount.character) {
-                charToCount.count += 1
+        countUnique.forEach(unique => {
+            if (word === unique.character) {
+                unique.count += 1
             }
         })
     })
-    return countWord;
+    return countUnique;
 }
 
 const counting = countRandomCharacter("aabbbahwws");
