@@ -1,4 +1,4 @@
-const validateInput = ({ name, gender}) => {
+const validateInputUser = ({ name, gender}) => {
     if (name.length < 8) {
         return "pastikan panjang karakter nama minimal 8";
     }else if(gender===""){
@@ -7,4 +7,12 @@ const validateInput = ({ name, gender}) => {
     
     return;
 };
-export default validateInput
+const validateInputRegister = ({ name, password }) => {
+    if (name.length < 8) {
+        return "Pastikan nama anda minimal 8 karakter"
+    } else if (password.length < 8) {
+        return "Pastikan password minimal 8 karakter"
+    }
+    return
+}
+export {validateInputUser,validateInputRegister}

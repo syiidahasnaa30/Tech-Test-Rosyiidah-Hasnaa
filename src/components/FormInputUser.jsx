@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
 import useInput from "../hooks/useInput";
-import validateInput from "../utils/validate-input";
+import { validateInputUser } from "../utils/validate-input";
 import { useParams } from "react-router-dom";
 import { getUser } from "../utils/user-api";
 import FormAction from "./FormAction";
@@ -32,7 +32,7 @@ const FormInputUser = ({ submitForm, setLoading }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const valid = validateInput({ name, gender });
+        const valid = validateInputUser({ name, gender });
         if (valid) {
             alert(valid);
         } else {

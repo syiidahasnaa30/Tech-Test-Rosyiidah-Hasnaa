@@ -187,6 +187,8 @@ footer{
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
+    bottom: 0;
+    margin-bottom: 0;
 }
 footer p{
     color: var(--bg-300);
@@ -204,7 +206,7 @@ footer p{
     }
 }
 
-@media screen and (min-width:850px) {
+@media screen and (min-width:1000px) {
     .login-page{
         display: grid;
         grid-template-columns: 2fr 1fr;

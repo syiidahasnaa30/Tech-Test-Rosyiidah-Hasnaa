@@ -8,7 +8,8 @@ const RegisterPage = () => {
     const submitForm = async ({ name, email, password }) => {
         const { error, message } = await register({ name, email, password })
         if (error) {
-            alert("gagal")
+            alert("Eror")
+            console.log(message)
         } else {
             alert(message)
             navigate("/")

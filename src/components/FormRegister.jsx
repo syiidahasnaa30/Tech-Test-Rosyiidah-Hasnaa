@@ -1,20 +1,13 @@
 /* eslint-disable react/prop-types */
 import { TextField } from "@mui/material"
 import useInput from "../hooks/useInput"
+import { validateInputRegister } from "../utils/validate-input"
 
 const FormRegister = ({ submitForm }) => {
     const [name, onNameChange] = useInput("")
     const [email, onEmailChange] = useInput("")
     const [password, onPasswordChange] = useInput("")
 
-    const validateInputRegister = ({ name, password }) => {
-        if (name.length < 8) {
-            return "Pastikan nama anda minimal 8 karakter"
-        } else if (password.length < 8) {
-            return "Pastikan password minimal 8 karakter"
-        }
-        return
-    }
     const handleSubmit = (event) => {
         event.preventDefault()
         const valid = validateInputRegister({ name, password })

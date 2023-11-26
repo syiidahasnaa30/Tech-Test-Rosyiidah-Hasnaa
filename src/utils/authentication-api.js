@@ -38,8 +38,8 @@ const register = async({name, email, password})=>{
         })
       });
     const responseJson = await response.json();
-    if(response.detail ==="success register new account"){
-        return {error: false, message: response.detail}
+    if(responseJson.detail ==="success register new account"){
+        return {error: false, message: responseJson.detail}
     }else{
         return {error : true, message: responseJson.detail}
     }
