@@ -11,7 +11,6 @@ import NotFoundPage from "./page/NotFoundPage"
 
 function App() {
   const [token, setToken] = useState(() => { return getToken() })
-  console.log(token)
 
   if (token === null || token === "") {
     return (

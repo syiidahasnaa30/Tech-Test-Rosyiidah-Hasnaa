@@ -13,8 +13,7 @@ const LoginPage = ({ setToken }) => {
     const handleSubmit = async ({ email, password }) => {
         const { error, data, message } = await login({ email, password })
         if (error) {
-            console.log(message)
-            alert("Pastikan password dan email anda telah sesuai")
+            alert(message)
         } else {
             console.log(data)
             putToken(data)
