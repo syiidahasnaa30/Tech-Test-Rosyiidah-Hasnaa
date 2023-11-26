@@ -1,8 +1,19 @@
-# React + Vite
+# Rosyiidah Hasnaa
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Requirement
+- node version 20
+- npm version 10
 
-Currently, two official plugins are available:
+### Bagaimana cara menjalankan proyek aplikasi ini:
+- Clone project ini pada komputer
+- Buka folder proyek ini menggunakan code editor
+- Buka terminal dan jalankan perintah berikut :
+- Jalankan perintah **npm install**
+- Jalankan perintah **npm run dev**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Bagaimana cara menjalankan logical-test:
+Logical test terletak pada folder **src/logical-test**
+- Buka terminal pada proyek ini
+- Jalankan perintah **cd src/logical-test**
+- Untuk memerika tiap soalnya, dapat menggunakan perintah **node soal1.js** untuk soal 1, begitupun untuk soal lainnya menyesuaikan penamaan file
+
