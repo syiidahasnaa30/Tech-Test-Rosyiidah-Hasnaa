@@ -1,4 +1,5 @@
 const BASE_URL = "https://cms-admin-v2.ihsansolusi.co.id/testapi";
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEwNTQxOTIsImlhdCI6MTcwMDk2Nzc5Miwic3ViIjozMDB9.65edlYxQVFpcuV9DxCKgCIJhozzZa5FPu6HxhoBukZg"
+const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEwNzY4NDEsImlhdCI6MTcwMDk5MDQ0MSwic3ViIjozMDB9.9tvxqgz0fcDbmObvHWTgwKFgkkoHaqwZIlTEp7rooQY"
 
-export { BASE_URL, TOKEN }
+
+export { BASE_URL, TOKEN}

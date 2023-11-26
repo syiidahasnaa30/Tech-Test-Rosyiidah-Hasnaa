@@ -1,10 +1,11 @@
-import { BASE_URL, TOKEN } from "../../public/config.js";
+import { BASE_URL} from "../../public/config.js";
+import { getToken } from "./authentication-api.js";
 
 const getAllUser = async () => {
     const data = await fetch(BASE_URL + "/user", {
         headers: {
             accept: "application/json",
-            Authorization: `Bearer ${TOKEN}`,
+            Authorization: `Bearer ${getToken()}`,
         },
     });
     const datajson = await data.json()
@@ -15,7 +16,7 @@ const addUser = async ({ name, address, gender, born_date }) => {
         method: 'POST',
         headers: {
             'accept': 'application/json',
-            'Authorization': `Bearer ${TOKEN}`,
+            'Authorization': `Bearer ${getToken()}`,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -33,7 +34,7 @@ const deleteUser = async (id) => {
         method: 'DELETE',
         headers: {
             'accept': 'application/json',
-            'Authorization': `Bearer ${TOKEN}`,
+            'Authorization': `Bearer ${getToken()}`,
         }
     });
     const responseJson = await response.json()
@@ -44,7 +45,7 @@ const getUser = async (id) => {
     const response = await fetch(`${BASE_URL}/user/${id}`, {
         headers: {
             'accept': 'application/json',
-            'Authorization': `Bearer ${TOKEN}`
+            'Authorization': `Bearer ${getToken()}`
         }
     });
     const responseJson = await response.json();
@@ -55,7 +56,7 @@ const updateUser = async ({id, name, address, gender, born_date}) =>{
         method: 'PUT',
         headers: {
             'accept': 'application/json',
-            'Authorization': `Bearer ${TOKEN}`,
+            'Authorization': `Bearer ${getToken()}`,
             'Content-Type': 'application/json'
     },
     body: JSON.stringify({name, address, gender, born_date})
