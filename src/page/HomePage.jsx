@@ -3,12 +3,16 @@ import TableUser from "../components/TableUser"
 import { GrAdd } from "react-icons/gr";
 import { getAllUser } from "../utils/user-api"
 import { Link } from "react-router-dom";
+import LoadingElement from "../components/Loading";
 
 const HomePage = () => {
     const [users, setUsers] = useState([])
-
     const getUser = async () => {
-        setUsers(await getAllUser())
+        try {
+            setUsers(await getAllUser())
+        } catch (error) {
+            alert(error)
+        }
     }
 
     useEffect(() => {
@@ -28,6 +32,8 @@ const HomePage = () => {
             </div>
         </>
     )
+    // }
+
 }
 
 export default HomePage

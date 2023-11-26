@@ -4,6 +4,7 @@ import { addUser } from "../utils/user-api";
 
 const CreateUserPage = () => {
     const navigate = useNavigate();
+
     const addNewUser = async ({ name, address, gender, born_date }) => {
         const { message } = await addUser({ name, address, gender, born_date })
         if (message) {
@@ -13,10 +14,13 @@ const CreateUserPage = () => {
             alert("failed")
         }
     }
+
     return (
         <div className="page-input-user">
             <FormInputUser submitForm={addNewUser} />
         </div>
     )
+
+
 }
 export default CreateUserPage

@@ -6,8 +6,11 @@ function useInput(defaultValue=""){
     const onValueChangeHandler = (event) => {
         setValue(event.target.value);
     };
+    const setInput=(input)=>{
+        setValue(input)
+    }
     
-    return [value, onValueChangeHandler];
+    return [value, onValueChangeHandler, setInput];
 
 }
 export default useInput

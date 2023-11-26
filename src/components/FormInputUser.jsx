@@ -2,17 +2,33 @@
 import { FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
 import useInput from "../hooks/useInput";
 import validateInput from "../utils/validate-input";
-import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getUser } from "../utils/user-api";
+import FormAction from "./FormAction";
+import { useEffect } from "react";
 
 const FormInputUser = ({ submitForm }) => {
     const { id } = useParams();
-    const [defaultInput, setDefaultInput] = useState({});
-    const [name, onNameChange] = useInput(defaultInput.name);
-    const [address, onAddressChange] = useInput(defaultInput.address);
-    const [gender, ongenderChange] = useInput(defaultInput.gender);
-    const [born_date, onBornDateChange] = useInput(defaultInput.born_date);
+    const [name, onNameChange, setName] = useInput("");
+    const [address, onAddressChange, setAddress] = useInput("");
+    const [gender, ongenderChange, setGender] = useInput("");
+    const [born_date, onBornDateChange, setBornDate] = useInput("");
+
+    const getExistingUser = async () => {
+        if (id) {
+            const response = await getUser(id);
+            if (response.message) {
+                setName(response.data.name)
+                setGender(response.data.gender)
+                setAddress(response.data.address)
+                setBornDate(response.data.born_date)
+            } else {
+                console.log(response.detail)
+            }
+        } else {
+            console.log("id not defined")
+        }
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -22,37 +38,24 @@ const FormInputUser = ({ submitForm }) => {
         } else {
             submitForm({ name, address, gender, born_date });
         }
-
     };
-    const getExistingUser = async () => {
-        if (id) {
-            const response = await getUser(id);
-            if (response.message) {
-                setDefaultInput(response.data);
-                return response.data
-            } else {
-                console.log("error");
-                return ""
-            }
-        }
-        return ""
-    }
+
     useEffect(() => {
         getExistingUser()
-    }, [defaultInput])
+    }, [])
 
     return (
         <form className="form-input" onSubmit={handleSubmit}>
             <h1>Masukkan data</h1>
             <TextField
                 required
-                placeholder={defaultInput.name ? defaultInput.name : "Masukkan nama minimal 8 karakter"}
+                placeholder="Masukkan nama minimal 8 karakter"
                 label="Nama"
                 fullWidth={true}
                 value={name}
                 onChange={onNameChange} />
             <TextField
-                placeholder={defaultInput.address ? defaultInput.address : "Masukkan alamatmu"}
+                placeholder="Masukkan alamatmu"
                 required
                 label="Alamat"
                 margin="normal"
@@ -78,8 +81,7 @@ const FormInputUser = ({ submitForm }) => {
                 value={born_date}
                 onChange={onBornDateChange}
             />
-            <button type="submit">Simpan</button>
-            <Link to="/"><p>Kembali ke beranda</p></Link>
+            <FormAction />
 
         </form>
     );
