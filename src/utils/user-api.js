@@ -1,4 +1,4 @@
-import { BASE_URL, TOKEN } from "./config.js";
+import { BASE_URL, TOKEN } from "../../public/config.js";
 
 const getAllUser = async () => {
     const data = await fetch(BASE_URL + "/user", {
@@ -49,10 +49,6 @@ const getUser = async (id) => {
         }
     });
     const responseJson = await response.json();
-    if (responseJson.message === "success") {
-        return responseJson.data
-    } else {
-        return responseJson.detail
-    }
+    return responseJson
 }
 export { getAllUser, addUser, deleteUser, getUser }

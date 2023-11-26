@@ -13,4 +13,7 @@ const showFormattedTime = (time) => {
     return new Date(time).toLocaleTimeString('id', options)
 }
 
-export { showFormattedDate, showFormattedTime };
+const showFormattedDateTime =(date)=>{
+    return showFormattedDate(date)+" "+showFormattedTime(date);
+}
+export { showFormattedDate, showFormattedTime, showFormattedDateTime };

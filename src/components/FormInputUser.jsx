@@ -2,6 +2,7 @@
 import { FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
 import useInput from "../hooks/useInput";
 import validateInput from "../utils/validate-input";
+import { Link } from "react-router-dom";
 
 const FormInputUser = ({ addNewUser }) => {
     const [name, onNameChange] = useInput("");
@@ -12,9 +13,9 @@ const FormInputUser = ({ addNewUser }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const valid = validateInput({ name });
+        const valid = validateInput({ name, gender });
         if (valid) {
-            alert(valid);
+            alert(valid)
         } else {
             addNewUser({ name, address: addres, gender, born_date })
         }
@@ -58,6 +59,7 @@ const FormInputUser = ({ addNewUser }) => {
             <FormLabel>Tanggal Lahir</FormLabel>
             <input required className="form-input__date" type="date" value={born_date} onChange={onBornDateChange} />
             <button type="submit">Simpan</button>
+            <p><Link to="/">Kembali ke beranda</Link></p>
 
         </form>
     );

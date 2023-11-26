@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
     const [users, setUsers] = useState([])
+
+    const getUser = async () => {
+        setUsers(await getAllUser())
+    }
+
     useEffect(() => {
-        const getUser = async () => {
-            setUsers(await getAllUser())
-        }
         getUser()
 
     }, [users])

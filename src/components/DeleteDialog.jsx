@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { deleteUser } from '../utils/user-api';
-function DialogDelete({ open, handleClose, id }) {
+function DeleteDialog({ open, handleClose, id }) {
 
     const moveToDelete = async () => {
         await deleteUser(id);
@@ -39,4 +39,4 @@ function DialogDelete({ open, handleClose, id }) {
         </React.Fragment>
     );
 }
-export default DialogDelete
+export default DeleteDialog

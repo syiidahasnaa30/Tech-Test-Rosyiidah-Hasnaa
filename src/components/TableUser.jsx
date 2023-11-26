@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import { showFormattedDate, showFormattedTime } from '../utils/fromat-date';
+import { showFormattedDate, showFormattedDateTime, showFormattedTime } from '../utils/fromat-date';
 import ButtonAction from './ButtonAction';
 
 const TableUser = ({ users }) => {
@@ -39,7 +39,7 @@ const TableUser = ({ users }) => {
                                 <TableCell sx={{ borderBottomColor: "#80CBC4" }}>{user.address}</TableCell>
                                 <TableCell sx={{ borderBottomColor: "#80CBC4" }}>{user.gender === 'p' ? 'Wanita' : 'Pria'}</TableCell>
                                 <TableCell sx={{ borderBottomColor: "#80CBC4" }}>{showFormattedDate(user.born_date)}</TableCell>
-                                <TableCell sx={{ borderBottomColor: "#80CBC4" }}>{showFormattedDate(user.created_at) + " " + showFormattedTime(user.created_at)}</TableCell>
+                                <TableCell sx={{ borderBottomColor: "#80CBC4" }}>{showFormattedDateTime(user.created_at)}</TableCell>
                                 <TableCell align="center" sx={{ borderBottomColor: "#80CBC4" }}>
                                     <ButtonAction id={user.id} />
                                 </TableCell>
