@@ -30,7 +30,7 @@ const DetailContent = ({ id }) => {
                 <h2>{user.name}</h2>
                 <p><BiSolidCity /> {user.address + ", " + showFormattedDate(user.born_date)}</p>
                 <p><MdPeopleAlt /> {user.gender === "p" ? "Perempuan" : "Laki-Laki"}</p>
-                <p><CiTimer /> dibuat pada {showFormattedDateTime(user.created_at)}</p>
+                <p><CiTimer /> terakhir diubah pada {showFormattedDateTime(user.created_at)}</p>
             </div>
         </div>
     )

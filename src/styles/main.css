@@ -37,7 +37,7 @@ button{
 }
 
 .table-user button:hover {
-    background-color: var(--accent-100);
+    background-color: var(--bg-100);
 }
 
 .table-user .btn-delete {
@@ -77,7 +77,7 @@ button{
 }
 
 /** create user page*/
-.page-input-user{
+.page-input-user, .page-edit-user{
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -115,6 +115,11 @@ button{
     margin-top: 20px;
 }
 
+.form-input p{
+    text-align: center;
+    color: var(--text-200);
+    
+}
 /* detail component */
 .detail-content{
     display: flex;

@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-const useOpen =()=>{
-    const [open, setOpen] = useState(false)
+const useOpen =(defaultValue=false)=>{
+    const [open, setOpen] = useState(defaultValue)
     const onOpenChange =()=>{
         setOpen((prevOpen)=>!prevOpen)
     }

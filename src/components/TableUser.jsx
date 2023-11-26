@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import { showFormattedDate, showFormattedDateTime, showFormattedTime } from '../utils/fromat-date';
+import { showFormattedDate, showFormattedDateTime } from '../utils/fromat-date';
 import ButtonAction from './ButtonAction';
 
 const TableUser = ({ users }) => {

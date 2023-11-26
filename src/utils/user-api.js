@@ -8,7 +8,6 @@ const getAllUser = async () => {
         },
     });
     const datajson = await data.json()
-    console.log(datajson.data)
     return datajson.data
 }
 const addUser = async ({ name, address, gender, born_date }) => {
@@ -51,4 +50,17 @@ const getUser = async (id) => {
     const responseJson = await response.json();
     return responseJson
 }
-export { getAllUser, addUser, deleteUser, getUser }
+const updateUser = async ({id, name, address, gender, born_date}) =>{
+    const response = await fetch(`${BASE_URL}/user/${id}`, {
+        method: 'PUT',
+        headers: {
+            'accept': 'application/json',
+            'Authorization': `Bearer ${TOKEN}`,
+            'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({name, address, gender, born_date})
+    });
+    const responseJson = await response.json()
+    return responseJson
+}
+export { getAllUser, addUser, deleteUser, getUser, updateUser }

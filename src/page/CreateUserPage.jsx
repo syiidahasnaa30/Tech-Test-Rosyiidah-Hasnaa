@@ -15,7 +15,7 @@ const CreateUserPage = () => {
     }
     return (
         <div className="page-input-user">
-            <FormInputUser addNewUser={addNewUser} />
+            <FormInputUser submitForm={addNewUser} />
         </div>
     )
 }
