@@ -1,12 +1,14 @@
+/* eslint-disable react/prop-types */
 import { TextField } from "@mui/material"
 import useInput from "../hooks/useInput"
 
-const FormLogin = ({ submitForm }) => {
+const FormLogin = ({ submitForm, setLoading }) => {
     const [email, onEmailChange] = useInput("");
     const [password, onPasswordChange] = useInput("")
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        setLoading(true)
         submitForm({ email, password })
     }
 

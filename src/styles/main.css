@@ -107,7 +107,7 @@ button{
     border-color: var(--accent-200);
 }
 
-.form-input button{
+.form-input button, .form-login button{
     width: 100%;
     background: var(--accent-200);
     border-radius: 5px;
@@ -136,17 +136,72 @@ button{
     text-align: center;
     color: var(--text-100);
 }
+/* login and register page */
+.login-page{
+   display: flex;
+   flex-direction: column-reverse;
+   min-height: 100vh;
+   align-items: center;
+   justify-items: center;
+}
+.login-page__left, .login-page__right{
+    padding: 50px;
+}
+.login-page__right{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--accent-200);
+}
+.login-page__right p{
+    color: var(--bg-100);
+}
+.login-page__right button{
+    border: none;
+    color: var(--text-100);
+    background: var(--bg-300);
+    min-width: 200px;
+    border-radius: 10px;
+}
+/* loading page */
+.loading-page{
+   margin-top: 50vh;
+   margin-left: 50px;
+   margin-right: 50px;
+   text-align: center;
+}
 
+/* footer */
+footer{
+    background: var(--primary-100);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+footer p{
+    color: var(--bg-300);
+}
 @media screen and (min-width:650px) {
     .app-content {
         padding: 50px;
     }
 }
 
-@media screen and(min-width:850px) {}
+@media screen and (min-width:850px) {
+    .login-page{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+  
+}
 
-@media screen and(min-width:1200px) {
+@media screen and (min-width:1200px) {
     .app-content {
+        padding: 100px;
+    }
+    .login-page__left{
         padding: 100px;
     }
 }

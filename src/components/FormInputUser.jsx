@@ -7,7 +7,7 @@ import { getUser } from "../utils/user-api";
 import FormAction from "./FormAction";
 import { useEffect } from "react";
 
-const FormInputUser = ({ submitForm }) => {
+const FormInputUser = ({ submitForm, setLoading }) => {
     const { id } = useParams();
     const [name, onNameChange, setName] = useInput("");
     const [address, onAddressChange, setAddress] = useInput("");
@@ -36,6 +36,7 @@ const FormInputUser = ({ submitForm }) => {
         if (valid) {
             alert(valid);
         } else {
+            setLoading(true)
             submitForm({ name, address, gender, born_date });
         }
     };

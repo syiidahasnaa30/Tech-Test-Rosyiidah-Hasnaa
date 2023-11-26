@@ -5,8 +5,8 @@ import EditUserPage from "./page/EditUserPage"
 import { useState } from "react"
 import { getToken } from "./utils/authentication-api"
 import LoginPage from "./page/LoginPage"
-import { } from "./utils/user-api"
 import RegisterPage from "./page/RegisterPage"
+import { FaCopyright } from "react-icons/fa6";
 
 function App() {
   const [token, setToken] = useState(() => { return getToken() })
@@ -14,27 +14,28 @@ function App() {
 
   if (token === null || token === "") {
     return (
-      <div className="app-content">
+      <div>
         <main >
           <Routes>
             <Route path="/" element={<LoginPage setToken={setToken} />} />
             <Route path="/register" element={<RegisterPage />} />
           </Routes>
-
         </main>
       </div>
     )
   }
   return (
-    <div className="app-content">
-      <main >
+    <div >
+      <main className="app-content" >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/user/add" element={<CreateUserPage />} />
           <Route path="/user/:id" element={<EditUserPage />} />
         </Routes>
-
       </main>
+      <footer>
+        <p><FaCopyright /> Rosyiidah Hasnaa 2023</p>
+      </footer>
     </div>
   )
 }
