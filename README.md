@@ -10,6 +10,7 @@
 - Buka terminal dan jalankan perintah berikut :
 - Jalankan perintah **npm install**
 - Jalankan perintah **npm run dev**
+- Website telah terdeploy pada [url berikut](https://tech-test-rosyiidah-hasnaa.netlify.app/)
 
 ### Bagaimana cara menjalankan logical-test:
 Logical test terletak pada folder **src/logical-test**
