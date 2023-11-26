@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { TextField } from "@mui/material"
 import useInput from "../hooks/useInput"
 
@@ -24,7 +25,7 @@ const FormRegister = ({ submitForm }) => {
         }
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form-register" onSubmit={handleSubmit}>
             <TextField value={name} onChange={onNameChange} label="Nama" fullWidth={true} margin="normal" />
             <TextField value={email} onChange={onEmailChange} type="email" label="Email" fullWidth={true} margin="normal" />
             <TextField value={password} onChange={onPasswordChange} type="password" label="Password" fullWidth={true} margin="normal" />

@@ -107,7 +107,7 @@ button{
     border-color: var(--accent-200);
 }
 
-.form-input button, .form-login button{
+.form-input button, .form-login button, .form-register button{
     width: 100%;
     background: var(--accent-200);
     border-radius: 5px;
@@ -137,6 +137,13 @@ button{
     color: var(--text-100);
 }
 /* login and register page */
+.register-page{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-items: center;
+}
 .login-page{
    display: flex;
    flex-direction: column-reverse;
@@ -144,21 +151,22 @@ button{
    align-items: center;
    justify-items: center;
 }
-.login-page__left, .login-page__right{
+.login-page__left, .login-page__right, .register-page__left, .register-page__right{
     padding: 50px;
 }
-.login-page__right{
+.login-page__right, .register-page__left{
     min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     background-color: var(--accent-200);
+    padding: 50px;
 }
-.login-page__right p{
+.login-page__right p, .register-page__left p{
     color: var(--bg-100);
 }
-.login-page__right button{
+.login-page__right button, .register-page__left button, .page-not-found button{
     border: none;
     color: var(--text-100);
     background: var(--bg-300);
@@ -183,6 +191,13 @@ footer{
 footer p{
     color: var(--bg-300);
 }
+
+/* page not found */
+.page-not-found{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 @media screen and (min-width:650px) {
     .app-content {
         padding: 50px;
@@ -194,6 +209,10 @@ footer p{
         display: grid;
         grid-template-columns: 2fr 1fr;
     }
+    .register-page{
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+    }
   
 }
 
@@ -201,7 +220,7 @@ footer p{
     .app-content {
         padding: 100px;
     }
-    .login-page__left{
+    .login-page__left, .register-page__right{
         padding: 100px;
     }
 }

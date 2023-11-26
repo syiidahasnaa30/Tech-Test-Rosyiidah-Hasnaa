@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import FormRegister from "../components/FormRegister"
 import { register } from "../utils/authentication-api"
+import image from "../assets/image-welcome.png"
 
 const RegisterPage = () => {
     const navigate = useNavigate()
@@ -16,7 +17,8 @@ const RegisterPage = () => {
     return (
         <div className="register-page">
             <div className="register-page__left">
-                <h1> Welcome to Register Page</h1>
+                <img src={image} alt="gambar" width={"100%"} />
+                <p>Sudah memiliki akun?</p>
                 <button onClick={() => navigate("/")}>LOGIN</button>
             </div>
             <div className="register-page__right">

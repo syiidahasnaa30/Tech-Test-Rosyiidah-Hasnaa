@@ -1,13 +1,14 @@
-import { Alert, Snackbar } from "@mui/material"
-import useOpen from "../hooks/useOpen"
+/* eslint-disable react/prop-types */
+// import { Alert, Snackbar } from "@mui/material"
+// import useOpen from "../hooks/useOpen"
 
-const SnackBarMessage = ({ message }) => {
-    // const [snackBarState, onChangeSnackBarState] = useOpen(true)
-    console.log(message)
-    alert(message)
-    return (
-        <>
-            {/* <Snackbar
+// const SnackBarMessage = ({ message }) => {
+// const [snackBarState, onChangeSnackBarState] = useOpen(true)
+// console.log(message)
+// alert(message)
+// return (
+<>
+    {/* <Snackbar
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
                 autoHideDuration={3000}
                 open={true}
@@ -18,8 +19,8 @@ const SnackBarMessage = ({ message }) => {
                 </Alert>
 
             </Snackbar> */}
-        </>
-    )
-}
+</>
+//     )
+// }
 
-export default SnackBarMessage
+// export default SnackBarMessage
