@@ -17,6 +17,7 @@ const LoginPage = ({ setToken }) => {
     const handleSubmit = async ({ email, password }) => {
         const { error, data, message } = await login({ email, password })
         if (error) {
+            alert(error)
             setSnackBar({ message, severity: "error" })
         } else {
             putToken(data)
