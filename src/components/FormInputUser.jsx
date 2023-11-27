@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import { getUser } from "../utils/user-api";
 import FormAction from "./FormAction";
 import { useEffect } from "react";
+import SnackBarMessage from "./SnackBarMessage";
+import useSnackBar from "../hooks/useSnackBar";
 
 const FormInputUser = ({ submitForm, setLoading }) => {
     const { id } = useParams();
@@ -13,6 +15,7 @@ const FormInputUser = ({ submitForm, setLoading }) => {
     const [address, onAddressChange, setAddress] = useInput("");
     const [gender, ongenderChange, setGender] = useInput("");
     const [born_date, onBornDateChange, setBornDate] = useInput("");
+    const [open, messgeSnackBar, severity, setSnackBar, onOpenChange] = useSnackBar()
 
     const getExistingUser = async () => {
         if (id) {
@@ -34,7 +37,7 @@ const FormInputUser = ({ submitForm, setLoading }) => {
         event.preventDefault();
         const valid = validateInputUser({ name, gender });
         if (valid) {
-            alert(valid);
+            setSnackBar({ message: valid, severity: "warning" })
         } else {
             setLoading(true)
             submitForm({ name, address, gender, born_date });
@@ -46,45 +49,49 @@ const FormInputUser = ({ submitForm, setLoading }) => {
     }, [])
 
     return (
-        <form className="form-input" onSubmit={handleSubmit}>
-            <h1>Masukkan data</h1>
-            <TextField
-                required
-                placeholder="Masukkan nama minimal 8 karakter"
-                label="Nama"
-                fullWidth={true}
-                value={name}
-                onChange={onNameChange} />
-            <TextField
-                placeholder="Masukkan alamatmu"
-                required
-                label="Alamat"
-                margin="normal"
-                fullWidth={true}
-                value={address}
-                onChange={onAddressChange} />
-            <FormLabel>Jenis Kelamin</FormLabel>
-            <RadioGroup
-                required
-                margin="normal"
-                row
-                aria-labelledby="demo-row-radio-buttons-group-label"
-                name="row-radio-buttons-group"
+        <>
+            <SnackBarMessage handleClose={onOpenChange} open={open} severity={severity} message={messgeSnackBar} />
+            <form className="form-input" onSubmit={handleSubmit}>
+                <h1>Masukkan data</h1>
+                <TextField
+                    required
+                    placeholder="Masukkan nama minimal 8 karakter"
+                    label="Nama"
+                    fullWidth={true}
+                    value={name}
+                    onChange={onNameChange} />
+                <TextField
+                    placeholder="Masukkan alamatmu"
+                    required
+                    label="Alamat"
+                    margin="normal"
+                    fullWidth={true}
+                    value={address}
+                    onChange={onAddressChange} />
+                <FormLabel>Jenis Kelamin</FormLabel>
+                <RadioGroup
+                    required
+                    margin="normal"
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
 
-            >
-                <FormControlLabel value="p" control={<Radio onClick={ongenderChange} checked={gender === "p" ? true : false} />} label="Perempuan" />
-                <FormControlLabel value="l" control={<Radio onClick={ongenderChange} checked={gender === "l" ? true : false} />} label="Laki-laki" />
-            </RadioGroup>
-            <FormLabel>Tanggal Lahir</FormLabel>
-            <input required
-                className="form-input__date"
-                type="date"
-                value={born_date}
-                onChange={onBornDateChange}
-            />
-            <FormAction />
+                >
+                    <FormControlLabel value="p" control={<Radio onClick={ongenderChange} checked={gender === "p" ? true : false} />} label="Perempuan" />
+                    <FormControlLabel value="l" control={<Radio onClick={ongenderChange} checked={gender === "l" ? true : false} />} label="Laki-laki" />
+                </RadioGroup>
+                <FormLabel>Tanggal Lahir</FormLabel>
+                <input required
+                    className="form-input__date"
+                    type="date"
+                    value={born_date}
+                    onChange={onBornDateChange}
+                />
+                <FormAction />
 
-        </form>
+            </form>
+        </>
+
     );
 };
 

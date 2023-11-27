@@ -13,25 +13,28 @@ const FormLogin = ({ submitForm, setLoading }) => {
     }
 
     return (
-        <form className="form-login" onSubmit={handleSubmit}>
-            <TextField
-                type="email"
-                value={email}
-                onChange={onEmailChange}
-                label="Email"
-                fullWidth={true}
-                required
-                margin="normal" />
-            <TextField
-                value={password}
-                onChange={onPasswordChange}
-                label="Password"
-                type="password"
-                fullWidth={true}
-                required
-                margin="normal" />
-            <button type="submit">LOGIN</button>
-        </form>
+        <>
+            <form className="form-login" onSubmit={handleSubmit}>
+                <TextField
+                    type="email"
+                    value={email}
+                    onChange={onEmailChange}
+                    label="Email"
+                    fullWidth={true}
+                    required
+                    margin="normal" />
+                <TextField
+                    value={password}
+                    onChange={onPasswordChange}
+                    label="Password"
+                    type="password"
+                    fullWidth={true}
+                    required
+                    margin="normal" />
+                <button type="submit">LOGIN</button>
+            </form>
+        </>
+
     )
 }
 export default FormLogin

@@ -6,18 +6,21 @@ import image from "../assets/image-welcome.png"
 import CardDefaultUser from "../components/CardDefaultUser"
 import { useState } from "react"
 import LoadingElement from "../components/LoadingElement"
+import SnackBarMessage from "../components/SnackBarMessage"
+import useSnackBar from "../hooks/useSnackBar"
 
 const LoginPage = ({ setToken }) => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
+    const [open, messgeSnackBar, severity, setSnackBar, onOpenChange] = useSnackBar()
+
     const handleSubmit = async ({ email, password }) => {
         const { error, data, message } = await login({ email, password })
         if (error) {
-            alert(message)
+            setSnackBar({ message, severity: "error" })
         } else {
-            console.log(data)
             putToken(data)
-            alert("sukses")
+            setSnackBar({ message: "sukses", severity: "success" })
             setToken(data)
         }
         setLoading(false)
@@ -25,22 +28,30 @@ const LoginPage = ({ setToken }) => {
 
     if (loading) {
         return (
-            <LoadingElement />
+            <>
+                <SnackBarMessage handleClose={onOpenChange} open={open} severity={severity} message={messgeSnackBar} />
+                <LoadingElement />
+            </>
+
         )
     } else {
         return (
-            <div className="login-page">
-                <div className="login-page__left">
-                    <h2>Jangan lupa Login Dulu</h2>
-                    <FormLogin submitForm={handleSubmit} setLoading={setLoading} />
-                    <CardDefaultUser />
+            <>
+                <SnackBarMessage handleClose={onOpenChange} open={open} severity={severity} message={messgeSnackBar} />
+                <div className="login-page">
+                    <div className="login-page__left">
+                        <h2>Jangan lupa Login Dulu</h2>
+                        <FormLogin submitForm={handleSubmit} setLoading={setLoading} />
+                        <CardDefaultUser />
+                    </div>
+                    <div className="login-page__right">
+                        <img src={image} width={"100%"} />
+                        <p>Belum punya akun?</p>
+                        <button onClick={() => { navigate("/register") }}>Buat Akun</button>
+                    </div>
                 </div>
-                <div className="login-page__right">
-                    <img src={image} width={"100%"} />
-                    <p>Belum punya akun?</p>
-                    <button onClick={() => { navigate("/register") }}>Buat Akun</button>
-                </div>
-            </div>
+            </>
+
         )
     }
 
