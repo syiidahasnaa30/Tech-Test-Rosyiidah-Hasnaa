@@ -3,13 +3,14 @@ import { TextField } from "@mui/material"
 import useInput from "../hooks/useInput"
 import { validateInputRegister } from "../utils/validate-input"
 
-const FormRegister = ({ submitForm }) => {
+const FormRegister = ({ submitForm, setLoading }) => {
     const [name, onNameChange] = useInput("")
     const [email, onEmailChange] = useInput("")
     const [password, onPasswordChange] = useInput("")
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        setLoading(true)
         const valid = validateInputRegister({ name, password })
         if (valid) {
             alert(valid)
