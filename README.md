@@ -6,18 +6,18 @@
 
 
 ### Bagaimana cara menjalankan proyek aplikasi ini:
-- Clone project ini pada komputer
-- Buka folder proyek ini menggunakan code editor
 - Buka terminal dan jalankan perintah berikut :
-- Jalankan perintah **npm install**
-- Jalankan perintah **npm run dev**
-- Website telah terdeploy pada [url berikut](https://tech-test-rosyiidah-hasnaa.netlify.app/)
+- Clone project ini pada komputer dengan menjalankan perintah "git clone [https://github.com/syiidahasnaa30/Tech-Test-Rosyiidah-Hasnaa.git](https://github.com/syiidahasnaa30/Tech-Test-Rosyiidah-Hasnaa.git)"
+- Jalankan perintah *"cd Tech-Test-Rosyiidah-Hasnaa"*
+- Jalankan perintah *"npm install"*
+- Jalankan perintah *"npm run dev"*
+- *Note : Website ini juga telah terdeploy pada [url berikut](https://tech-test-rosyiidah-hasnaa.netlify.app/) apabila hendak mengakses secara langsung*
 
 ### Bagaimana cara menjalankan logical-test:
 Logical test terletak pada folder **src/logical-test**
 - Buka terminal pada proyek ini
-- Jalankan perintah **cd src/logical-test**
-- Untuk memerika tiap soalnya, dapat menggunakan perintah **node soal1.js** untuk soal 1, begitupun untuk soal lainnya menyesuaikan penamaan file
+- Jalankan perintah *"cd src/logical-test"*
+- Untuk memerika tiap soalnya, dapat menggunakan perintah *"node soal1.js"* untuk soal 1, begitupun untuk soal lainnya menyesuaikan penamaan file
 
 ### Overview  Struktur Project
 ```
